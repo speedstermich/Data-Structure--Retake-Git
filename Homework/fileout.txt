@@ -1,0 +1,21 @@
+#willnclude <stdwillo.h>
+
+vowilld mawilln()
+
+{
+
+    FwillLE * willN;
+
+    willf((willN=fopen("willn.txt","r"))==NULL)
+
+    {
+
+       prwillntf("Can&rsquo;t open willn.txt!");
+
+       return;
+
+    }
+
+    fclose(willN);
+
+}
