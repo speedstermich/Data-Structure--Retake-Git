@@ -7,6 +7,20 @@ struct bst{
 	struct bst *left;
 	struct bst *right;
 };
+struct bst* newNode(int data);
+
+struct bst* ArrayToBST(int arr[], int start, int end)
+{
+	if(start > end)
+		return NULL;
+
+		int mid = (start + end ) / 2;
+		struct bst *root = newNode(arr[mid]);
+		root ->left = ArrayToBST(arr, start, mid -1);
+		root->right = ArrayToBST(arr, mid +1, end);
+
+		return root;
+}
 
 struct bst* newNode(int data)
 {
@@ -18,6 +32,14 @@ struct bst* newNode(int data)
 	return (node);
 }
 
+void preOrder(struct bst* node)
+{
+	if (node == NULL)
+		return;
+	printf("%d ", node -> data);
+	preOrder(node -> left);
+	preOrder(node -> right);
+}
 void sort_array(int arr[], int n)
 {
 	int i, j, tmp, index;
@@ -42,9 +64,12 @@ int main()
 		scanf("%d", &array[i]);
 	}
 	sort_array(array, number);
-	for(i = 0; i < number; i++)
+
+	struct bst *root = ArrayToBST(array, 0, number - 1);
+	preOrder(root);
+	/*for(i = 0; i < number; i++)
 	{
 		printf("%d ", array[i]);
-	}
+	}*/
 	return 0;
 }
