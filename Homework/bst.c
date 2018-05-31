@@ -9,7 +9,7 @@ struct bst{
 };
 struct bst* newNode(int data);
 
-struct bst* ArrayToBST(int arr[], int start, int end)
+/*struct bst* ArrayToBST(int arr[], int start, int end)
 {
 	if(start > end)
 		return NULL;
@@ -20,7 +20,7 @@ struct bst* ArrayToBST(int arr[], int start, int end)
 		root->right = ArrayToBST(arr, mid +1, end);
 
 		return root;
-}
+}*/
 
 struct bst* newNode(int data)
 {
@@ -32,7 +32,7 @@ struct bst* newNode(int data)
 	return (node);
 }
 
-void preOrder(struct bst* node)
+/*void preOrder(struct bst* node)
 {
 	if (node == NULL)
 		return;
@@ -48,11 +48,6 @@ void swap(int* a, int* b)
     *b = t;
 }
 
-/* This function takes last element as pivot, places
-   the pivot element at its correct position in sorted
-    array, and places all smaller (smaller than pivot)
-   to left of pivot and all greater elements to right
-   of pivot */
 int partition (int arr[], int low, int high)
 {
     int pivot = arr[high];    // pivot
@@ -72,24 +67,21 @@ int partition (int arr[], int low, int high)
     return (i + 1);
 }
 
-/* The main function that implements QuickSort
- arr[] --> Array to be sorted,
-  low  --> Starting index,
-  high  --> Ending index */
 void quickSort(int arr[], int low, int high)
 {
     if (low < high)
     {
         /* pi is partitioning index, arr[p] is now
            at right place */
-        int pi = partition(arr, low, high);
+       // int pi = partition(arr, low, high);
 
         // Separately sort elements before
         // partition and after partition
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
-    }
-}
+        //quickSort(arr, low, pi - 1);
+        //quickSort(arr, pi + 1, high);
+//}
+//}
+
 int main()
 {
 	int number, array[MAX_NUMBER];
@@ -101,8 +93,8 @@ int main()
 	}
 	quickSort(array, 0, number - 1);
 
-	struct bst *root = ArrayToBST(array, 0, number - 1);
-	preOrder(root);
+	//struct bst *root = ArrayToBST(array, 0, number - 1);
+	//preOrder(root);
 	//for(i = 0; i < number; i++)
 	//{
 	//	printf("%d ", array[i]);

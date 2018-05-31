@@ -17,16 +17,16 @@ void QuickSort(int k[ ], int left, int right)
 	{
 		last=left;
 		for(i=left+1;i<=right;i++)
-		count++;
 			if(k[i]<k[left])
 				swap(&k[++last], &k[i]);
+				//count++;
 			swap(&k[left], &k[last]);
-		quickSort(k,left,last-1);
-		quickSort(k,last+1,right);
-}
+		QuickSort(k,left,last-1);
+		QuickSort(k,last+1,right);
+	}
 }
 
-void BubbleSort()
+/*void BubbleSort()
 {
 
 }
@@ -39,6 +39,23 @@ void SelectionSort()
 void MergeSort()
 {
 
+}*/
+
+void Adjust(int k[ ], int i, int n)
+{
+	int j, temp;
+	temp = k[i];
+	j = 2 * i + 1;
+	while(j < n)
+    	{
+        	if(j < n-1 && k[j]<k[j+1])
+			j++;
+        	if(temp>=k[j])
+			break;
+		k[(j-1)/2]=k[j];
+		j=2*j+1;
+	}
+	k[(j-1)/2]=temp;
 }
 
 void PrintArray(int array[], int start, int end)
@@ -57,14 +74,19 @@ int main(int argc, char const *argv[]) {
 	scanf("%d %d", &number, &choose);
 	for(i = 0; i < number; i++)
 	{
-		scanf("%d", &array[i]);
+		scanf("%d ", &array[i]);
 	}
 	if(choose == 1)
 	{
-		quickSort(array, 0, number - 1);
+		QuickSort(array, 0, number - 1);
 		PrintArray(array, 0, number);
 		printf("%d", count);
 	}
-
+	else if(choose == 2)
+	{
+		Adjust(array, 0, number - 1);
+		PrintArray(array, 0, number);
+		printf("%d", count);
+	}
 	return 0;
 }
