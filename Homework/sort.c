@@ -10,7 +10,7 @@ void swap(int* a, int* b)
     *b = t;
 }
 
-void quickSort(int k[ ], int left, int right)
+void QuickSort(int k[ ], int left, int right)
 {
 	int i, last;
 	if(left<right)
@@ -23,10 +23,23 @@ void quickSort(int k[ ], int left, int right)
 			swap(&k[left], &k[last]);
 		quickSort(k,left,last-1);
 		quickSort(k,last+1,right);
-	}
+}
 }
 
+void BubbleSort()
+{
 
+}
+
+void SelectionSort()
+{
+
+}
+
+void MergeSort()
+{
+
+}
 
 void PrintArray(int array[], int start, int end)
 {
