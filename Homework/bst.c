@@ -9,19 +9,6 @@ struct bst{
 };
 struct bst* newNode(int data);
 
-/*struct bst* ArrayToBST(int arr[], int start, int end)
-{
-	if(start > end)
-		return NULL;
-
-		int mid = (start + end ) / 2;
-		struct bst *root = newNode(arr[mid]);
-		root ->left = ArrayToBST(arr, start, mid -1);
-		root->right = ArrayToBST(arr, mid +1, end);
-
-		return root;
-}*/
-
 struct bst* newNode(int data)
 {
 	struct bst* node = (struct bst *)malloc(sizeof(struct bst));
@@ -29,75 +16,51 @@ struct bst* newNode(int data)
 	node->left = NULL;
 	node -> right = NULL;
 
-	return (node);
+	return node;
 }
 
-/*void preOrder(struct bst* node)
+struct bst* Insert(struct bst* node, int data)
 {
-	if (node == NULL)
-		return;
-	printf("%d ", node -> data);
-	preOrder(node -> left);
-	preOrder(node -> right);
+	//if tree is empty return a new node
+	if(node == NULL)
+		return newNode(data);
+	//recursion insert to the tree
+	if(data < node->data)
+		node->left = Insert(node->left, data);
+	else if (data > node->data)
+		node->right = Insert(node->right, data);
+
+	//return the node pointer
+	return node;
 }
 
-void swap(int* a, int* b)
+void Inorder(struct bst *root)
 {
-    int t = *a;
-    *a = *b;
-    *b = t;
+	if(root != NULL)
+	{
+		Inorder(root->left);
+		printf("%d \n", root->data );
+		Inorder(root->right);
+	}
 }
-
-int partition (int arr[], int low, int high)
-{
-    int pivot = arr[high];    // pivot
-    int i = (low - 1);  // Index of smaller element
-
-    for (int j = low; j <= high- 1; j++)
-    {
-        // If current element is smaller than or
-        // equal to pivot
-        if (arr[j] <= pivot)
-        {
-            i++;    // increment index of smaller element
-            swap(&arr[i], &arr[j]);
-        }
-    }
-    swap(&arr[i + 1], &arr[high]);
-    return (i + 1);
-}
-
-void quickSort(int arr[], int low, int high)
-{
-    if (low < high)
-    {
-        /* pi is partitioning index, arr[p] is now
-           at right place */
-       // int pi = partition(arr, low, high);
-
-        // Separately sort elements before
-        // partition and after partition
-        //quickSort(arr, low, pi - 1);
-        //quickSort(arr, pi + 1, high);
-//}
-//}
 
 int main()
 {
-	int number, array[MAX_NUMBER];
+	int number, array[MAX_NUMBER], temp;
 	int i;
+	struct bst *root = NULL;
+
 	scanf("%d", &number);
 	for(i = 0; i < number; i++)
 	{
 		scanf("%d", &array[i]);
+		temp = array[i];
+		if (root == NULL)
+			root = Insert(root, temp);
+		else
+			Insert(root, temp);
 	}
-	quickSort(array, 0, number - 1);
 
-	//struct bst *root = ArrayToBST(array, 0, number - 1);
-	//preOrder(root);
-	//for(i = 0; i < number; i++)
-	//{
-	//	printf("%d ", array[i]);
-	//}
+	Inorder(root);
 	return 0;
 }
