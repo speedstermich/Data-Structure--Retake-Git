@@ -8,6 +8,7 @@ struct bst{
 	struct bst *right;
 };
 struct bst* newNode(int data);
+int pathlen = 1;
 
 struct bst* newNode(int data)
 {
@@ -19,7 +20,7 @@ struct bst* newNode(int data)
 	return node;
 }
 
-struct bst* Insert(struct bst* node, int data)
+struct bst* Insert(struct bst  *node, int data)
 {
 	//if tree is empty return a new node
 	if(node == NULL)
@@ -27,21 +28,35 @@ struct bst* Insert(struct bst* node, int data)
 	//recursion insert to the tree
 	if(data < node->data)
 		node->left = Insert(node->left, data);
-	else if (data > node->data)
+	else if (data >= node->data)
 		node->right = Insert(node->right, data);
 
 	//return the node pointer
 	return node;
 }
 
-void Inorder(struct bst *root)
+void PrintfLeaf(struct bst *root)
 {
-	if(root != NULL)
+	if(!root)
+		return;
+	if(!root -> left && !root -> right)
 	{
-		Inorder(root->left);
-		printf("%d \n", root->data );
-		Inorder(root->right);
+		printf("%d %d ", root -> data, pathlen);
+		return;
 	}
+
+	if(root -> left)
+	{
+		++pathlen;
+		PrintfLeaf(root -> left);
+	}
+	pathlen -= 1;
+	if(root -> right)
+	{
+		++pathlen;
+		PrintfLeaf(root -> right);
+	}
+	pathlen -= 1;
 }
 
 int main()
@@ -61,6 +76,7 @@ int main()
 			Insert(root, temp);
 	}
 
-	Inorder(root);
+	PrintfLeaf(root);
+
 	return 0;
 }
