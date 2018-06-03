@@ -1,7 +1,7 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #define MAXSIZE 100
-
 struct BST{
 	int key;
 	struct BST *left, *right;
