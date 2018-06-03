@@ -17,18 +17,41 @@ struct BST *newNode(int item)
 	return node;
 }
 
+void Print(struct BST *root)
+{
+	if(!root)
+		root;
+	if(!root->left && !root->right)
+	{
+		printf("%d ", root->key);
+		return;
+	}
+	if(root->left)
+	{
+		Print(root->left);
+	}
+	if(root->right)
+	{
+		Print(root->right);
+	}
+}
+
 struct BST  *InsertNode(struct BST *node, int data)
 {
 	if(node == NULL)
 		return newNode(data);
-	if(data < node->data)
+	if(data < node->key)
 		node->left = InsertNode(node->left, data);
+	else if(data >= node->key)
+		node->right = InsertNode(node->right, data);
+
+	return node;
 }
 
 int main(int argc, char const *argv[]) {
 	int number, arr[MAXSIZE], temp;
 	int i;
-	struct bst *root = NULL;
+	struct BST *root = NULL;
 	scanf("%d", &number);
 
 	for (i = 0; i < number;  i++)
@@ -40,6 +63,6 @@ int main(int argc, char const *argv[]) {
 		else
 			InsertNode(root, temp);
 	}
-
+	Print(root);
 	return 0;
 }
