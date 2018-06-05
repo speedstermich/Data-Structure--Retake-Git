@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/*char getWod()
+{
+
+}*/
+
 int main(int argc, char const *argv[]) {
 	FILE *fp;
 
@@ -8,6 +13,6 @@ int main(int argc, char const *argv[]) {
 		printf("File Doesn Exist ! \n");
 		return -1;
 	}
-	
+
 	return 0;
 }
