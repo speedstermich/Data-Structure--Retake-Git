@@ -29,17 +29,44 @@ void QuickSort(int k[ ], int left, int right)
 /*void BubbleSort()
 {
 
-}
-
-void SelectionSort()
-{
-
-}
-
-void MergeSort()
-{
-
 }*/
+
+void selectionSort(int arr[], int n)
+{
+    int i, j, min_idx;
+
+    // One by one move boundary of unsorted subarray
+    for (i = 0; i < n-1; i++)
+    {
+        // Find the minimum element in unsorted array
+        min_idx = i;
+        for (j = i+1; j < n; j++)
+          if (arr[j] < arr[min_idx])
+            min_idx = j;
+
+        // Swap the found minimum element with the first element
+        swap(&arr[min_idx], &arr[i]);
+    }
+}
+
+void merge(int x[ ],int tmp[ ],int left,int leftend,int rightend)
+{
+	int i=left, j=leftend+1, q=left;
+
+	while(i<=leftend && j<=rightend)
+	{
+		if(x[i]<=x[j])
+			tmp[q++]=x[i++];
+		else
+			tmp[q++]=x[j++];
+	}
+	while(i<=leftend)
+		tmp[q++]=x[i++];
+	while(j<=rightend)
+		tmp[q++]=x[j++];
+	for(i=left; i<=rightend; i++)
+		x[i]=tmp[i];
+}
 
 void Adjust(int k[ ], int i, int n)
 {
@@ -52,7 +79,7 @@ void Adjust(int k[ ], int i, int n)
 			j++;
         	if(temp>=k[j])
 			break;
-		k[(j-1)/2]=k[j];
+		k[(j-1)/	2]=k[j];
 		j=2*j+1;
 	}
 	k[(j-1)/2]=temp;
@@ -88,5 +115,6 @@ int main(int argc, char const *argv[]) {
 		PrintArray(array, 0, number);
 		printf("%d", count);
 	}
+
 	return 0;
 }

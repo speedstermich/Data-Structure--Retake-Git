@@ -20,7 +20,7 @@ struct BST *newNode(int item)
 void Print(struct BST *root)
 {
 	if(!root)
-		root;
+		return;
 	if(!root->left && !root->right)
 	{
 		printf("%d ", root->key);
