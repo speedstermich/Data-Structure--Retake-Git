@@ -10,7 +10,7 @@ void swap(int* a, int* b)
     *b = t;
    //++count;
 }
-
+//choose #5
 void QuickSort(int k[ ], int left, int right)
 {
 	int i, last;
@@ -28,6 +28,7 @@ void QuickSort(int k[ ], int left, int right)
 	}
 }
 
+//choose #2
 void BubbleSort(int arr[], int n)
 {
 	int i, j;
@@ -40,6 +41,7 @@ void BubbleSort(int arr[], int n)
 			}
 }
 
+//choose #1
 void SelectionSort(int arr[], int n)
 {
 	int i, j, min_idx;
@@ -61,7 +63,8 @@ void SelectionSort(int arr[], int n)
 	}
 }
 
-void merge(int x[ ],int tmp[ ],int left,int leftend,int rightend)
+//choose #4
+void merge(int x[ ], int tmp[ ], int left, int leftend, int rightend)
 {
 	int i=left, j=leftend+1, q=left;
 
@@ -80,6 +83,7 @@ void merge(int x[ ],int tmp[ ],int left,int leftend,int rightend)
 		x[i]=tmp[i];
 }
 
+//choose #3
 void Adjust(int k[ ], int i, int n)
 {
 	int j, temp;
@@ -87,14 +91,14 @@ void Adjust(int k[ ], int i, int n)
 	j = 2 * i + 1;
 	while(j < n)
     	{
-        	if(j < n-1 && k[j]<k[j+1])
+        	if(j < n-1 && k[j] < k[j + 1])
 			j++;
-        	if(temp>=k[j])
+        	if(temp >= k[j])
 			break;
-		k[(j-1)/	2]=k[j];
-		j=2*j+1;
+		k[ (j - 1) / 2 ] = k[j];
+		j = 2 * j + 1;
 	}
-	k[(j-1)/2]=temp;
+	k[( j - 1 ) / 2 ] = temp;
 }
 
 void PrintArray(int array[], int start, int end)
@@ -129,9 +133,15 @@ int main(int argc, char const *argv[]) {
 	}
 	else if(choose == 3)
 	{
-		Adjust(array, 0, number - 1);
+		Adjust(array, 0, number);
 		PrintArray(array, 0, number);
 		printf("%d", count);
+	}
+	else if(choose == 4)
+	{
+		QuickSort(array, 0, number - 1);
+		PrintArray(array, 0, number);
+		printf("%d\n", count);
 	}
 	else if(choose == 5)
 	{
