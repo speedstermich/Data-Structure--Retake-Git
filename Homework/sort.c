@@ -8,7 +8,7 @@ void swap(int* a, int* b)
     int t = *a;
     *a = *b;
     *b = t;
-   // ++count;
+   //++count;
 }
 
 void QuickSort(int k[ ], int left, int right)
@@ -18,8 +18,10 @@ void QuickSort(int k[ ], int left, int right)
 	{
 		last=left;
 		for(i=left+1;i<=right;i++)
-			if( k[i]<k[left] )
+			if(k[i]<k[left])
+				++count;
 				swap(&k[++last], &k[i]);
+			//++count;
 			swap(&k[left], &k[last]);
 		QuickSort(k,left,last-1);
 		QuickSort(k,last+1,right);
