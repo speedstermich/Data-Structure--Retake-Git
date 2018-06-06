@@ -10,37 +10,6 @@ void swap(int* a, int* b)
     *b = t;
    //++count;
 }
-//choose #5
-void QuickSort(int k[ ], int left, int right)
-{
-	int i, last;
-	if(left<right)
-	{
-		last=left;
-		for(i=left+1;i<=right;i++)
-			if(k[i]<k[left])
-				++count;
-				swap(&k[++last], &k[i]);
-			//++count;
-			swap(&k[left], &k[last]);
-		QuickSort(k,left,last-1);
-		QuickSort(k,last+1,right);
-	}
-}
-
-//choose #2
-void BubbleSort(int arr[], int n)
-{
-	int i, j;
-	for(i = 0; i < n-1; i++)
-		for(j = 0; j < n -1; j++)
-			if( arr[j] > arr[j + 1] )
-			{
-				++count;
-				swap( &arr[j], &arr[j + 1] );
-			}
-}
-
 //choose #1
 void SelectionSort(int arr[], int n)
 {
@@ -59,30 +28,27 @@ void SelectionSort(int arr[], int n)
 			}
 	// Swap the found minimum element with the first element
 		swap(&arr[min_idx], &arr[i]);
-		//++count;
 	}
 }
-
-//choose #4
-void merge(int x[ ], int tmp[ ], int left, int leftend, int rightend)
+//choose #2
+void BubbleSort(int arr[], int n)
 {
-	int i=left, j=leftend+1, q=left;
-
-	while(i<=leftend && j<=rightend)
+	int i, j, flag = 1;
+	for(i = n -1; i > 0 && flag == 1; i--)
 	{
-		if(x[i]<=x[j])
-			tmp[q++]=x[i++];
-		else
-			tmp[q++]=x[j++];
-	}
-	while(i<=leftend)
-		tmp[q++]=x[i++];
-	while(j<=rightend)
-		tmp[q++]=x[j++];
-	for(i=left; i<=rightend; i++)
-		x[i]=tmp[i];
-}
+		flag = 0;
+		for(j = 0; j < i; j++)
+		{
+			++count;
+			if( arr[j] > arr[ j +1 ] )
+			{
+				swap(&arr[j], &arr[j + 1]);
+				flag = 1;
 
+			}
+		}
+	}
+}
 //choose #3
 void Adjust(int k[ ], int i, int n)
 {
@@ -100,7 +66,45 @@ void Adjust(int k[ ], int i, int n)
 	}
 	k[( j - 1 ) / 2 ] = temp;
 }
+//choose #4
+void Merge(int x[ ], int tmp[ ], int left, int leftend, int rightend)
+{
+	int i=left, j=leftend+1, q=left;
 
+	while(i<=leftend && j<=rightend)
+	{
+		if(x[i]<=x[j])
+			tmp[q++]=x[i++];
+		else
+			tmp[q++]=x[j++];
+	}
+	while(i<=leftend)
+		tmp[q++]=x[i++];
+	while(j<=rightend)
+		tmp[q++]=x[j++];
+	for(i=left; i<=rightend; i++)
+		x[i]=tmp[i];
+}
+//choose #5
+void QuickSort(int k[ ], int left, int right)
+{
+	int i, last;
+	if(left<right)
+	{
+		last=left;
+		for(i=left+1;i<=right;i++)
+		{
+			++count;
+			if(k[i]<k[left])
+				swap(&k[++last], &k[i]);
+			//++count;
+		}
+		swap(&k[left], &k[last]);
+		QuickSort(k,left,last-1);
+		QuickSort(k,last+1,right);
+	}
+}
+//print out array fuction
 void PrintArray(int array[], int start, int end)
 {
 	int i;
@@ -125,7 +129,7 @@ int main(int argc, char const *argv[]) {
 		PrintArray(array, 0, number);
 		printf("%d\n", count );
 	}
-	else if(choose == 2)
+	else if(choose == 2)//true
 	{
 		BubbleSort(array, number);
 		PrintArray(array, 0, number);
@@ -139,11 +143,11 @@ int main(int argc, char const *argv[]) {
 	}
 	else if(choose == 4)
 	{
-		QuickSort(array, 0, number - 1);
+		//Merge(array, 0, number - 1);
 		PrintArray(array, 0, number);
 		printf("%d\n", count);
 	}
-	else if(choose == 5)
+	else if(choose == 5) //True
 	{
 		QuickSort(array, 0, number - 1);
 		PrintArray(array, 0, number);
