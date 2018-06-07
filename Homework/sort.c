@@ -75,7 +75,7 @@ void HeapSort(int K[], int n)
 	int i;
 	int temp;
 	for( i = n / 2; i > 0; i--)
-		Adjust(K, i, n - 1);
+		Adjust(K, i, n);
 	for(i = n - 1; i > 0; i--)
 	{
 		swap(&K[0], &K[i + 1]);
