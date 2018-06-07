@@ -69,21 +69,21 @@ void Adjust(int k[ ], int i, int n)
 //choose #4
 void Merge(int x[ ], int tmp[ ], int left, int leftend, int rightend)
 {
-	int i=left, j=leftend+1, q=left;
+	int i = left, j = leftend + 1, q = left;
 
-	while(i<=leftend && j<=rightend)
+	while(i <= leftend && j <= rightend)
 	{
 		if(x[i]<=x[j])
-			tmp[q++]=x[i++];
+			tmp[q++] = x[i++];
 		else
-			tmp[q++]=x[j++];
+			tmp[q++] = x[j++];
 	}
-	while(i<=leftend)
-		tmp[q++]=x[i++];
-	while(j<=rightend)
-		tmp[q++]=x[j++];
-	for(i=left; i<=rightend; i++)
-		x[i]=tmp[i];
+	while(i <= leftend)
+		tmp[q++] = x[i++];
+	while(j <= rightend)
+		tmp[q++] = x[j++];
+	for(i = left; i <= rightend; i++)
+		x[i] = tmp[i];
 }
 //choose #5
 void QuickSort(int k[ ], int left, int right)
@@ -117,7 +117,7 @@ printf("\n");
 
 int main(int argc, char const *argv[]) {
 	int number, choose, i;
-	int array[MAX];
+	int array[MAX], temp[MAX];
 	scanf("%d %d", &number, &choose);
 	for(i = 0; i < number; i++)
 	{
