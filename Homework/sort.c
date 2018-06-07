@@ -21,11 +21,13 @@ void SelectionSort(int arr[], int n)
         // Find the minimum element in unsorted array
 		min_idx = i;
 		for (j = i+1; j < n; j++)
+		{
 			++count;
 			if (arr[j] < arr[min_idx])
 			{
 				min_idx = j;
 			}
+		}
 	// Swap the found minimum element with the first element
 		swap(&arr[min_idx], &arr[i]);
 	}
@@ -59,12 +61,26 @@ void Adjust(int k[ ], int i, int n)
     	{
         	if(j < n-1 && k[j] < k[j + 1])
 			j++;
-        	if(temp >= k[j])
+		++count;
+		if(temp >= k[j])
 			break;
 		k[ (j - 1) / 2 ] = k[j];
 		j = 2 * j + 1;
 	}
 	k[( j - 1 ) / 2 ] = temp;
+}
+
+void HeapSort(int K[], int n)
+{
+	int i;
+	int temp;
+	for( i = n / 2; i > 0; i--)
+		Adjust(K, i, n - 1);
+	for(i = n - 1; i > 0; i--)
+	{
+		swap(&K[0], &K[i + 1]);
+		Adjust(K, 0, i);
+	}
 }
 //choose #4
 void Merge(int x[ ], int tmp[ ], int left, int leftend, int rightend)
@@ -73,7 +89,7 @@ void Merge(int x[ ], int tmp[ ], int left, int leftend, int rightend)
 
 	while(i <= leftend && j <= rightend)
 	{
-		if(x[i]<=x[j])
+		if(x[i] <= x[j])
 			tmp[q++] = x[i++];
 		else
 			tmp[q++] = x[j++];
@@ -137,13 +153,13 @@ int main(int argc, char const *argv[]) {
 	}
 	else if(choose == 3)
 	{
-		Adjust(array, 0, number);
+		HeapSort(array, number);
 		PrintArray(array, 0, number);
-		printf("%d", count);
+		printf("%d\n", count);
 	}
 	else if(choose == 4)
 	{
-		//Merge(array, 0, number - 1);
+		Merge(array, temp, 0, 1, number - 1);
 		PrintArray(array, 0, number);
 		printf("%d\n", count);
 	}
