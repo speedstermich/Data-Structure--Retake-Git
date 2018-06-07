@@ -89,19 +89,19 @@ void Merge(int x[ ], int tmp[ ], int left, int leftend, int rightend)
 void QuickSort(int k[ ], int left, int right)
 {
 	int i, last;
-	if(left<right)
+	if(left < right)
 	{
-		last=left;
-		for(i=left+1;i<=right;i++)
+		last = left;
+		for(i = left + 1; i <= right; i++)
 		{
 			++count;
-			if(k[i]<k[left])
+			if(k[i] < k[left])
 				swap(&k[++last], &k[i]);
 			//++count;
 		}
 		swap(&k[left], &k[last]);
-		QuickSort(k,left,last-1);
-		QuickSort(k,last+1,right);
+		QuickSort(k, left, last-1);
+		QuickSort(k, last+1, right);
 	}
 }
 //print out array fuction
