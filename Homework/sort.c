@@ -14,7 +14,6 @@ void swap(int* a, int* b)
 void SelectionSort(int arr[], int n)
 {
 	int i, j, min_idx;
-
     // One by one move boundary of unsorted subarray
     	for (i = 0; i < n-1; i++)
     	{
@@ -51,7 +50,7 @@ void BubbleSort(int arr[], int n)
 		}
 	}
 }
-//choose #3
+//choose #3, This Function for adjust the heap tree
 void Adjust(int k[ ], int i, int n)
 {
 	int j, temp;
@@ -69,7 +68,7 @@ void Adjust(int k[ ], int i, int n)
 	}
 	k[( j - 1 ) / 2 ] = temp;
 }
-
+//HeapSort function for sorting array
 void HeapSort(int K[], int n)
 {
 	int i;
