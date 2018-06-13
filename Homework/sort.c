@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MAX 101
 int count = 0;
@@ -73,7 +74,7 @@ void Adjust(int k[ ], int i, int n)
 void HeapSort(int K[], int n)
 {
 	int i;
-	int temp;
+	//int temp;
 	for( i = n / 2 - 1; i >= 0; i--)
 		Adjust(K, i, n );
 	for(i = n - 1; i >= 1; i--)
@@ -89,6 +90,7 @@ void Merge(int x[ ], int tmp[ ], int left, int leftend, int rightend)
 
 	while(i <= leftend && j <= rightend)
 	{
+		++count;
 		if(x[i] <= x[j])
 			tmp[q++] = x[i++];
 		else
@@ -101,6 +103,32 @@ void Merge(int x[ ], int tmp[ ], int left, int leftend, int rightend)
 	for(i = left; i <= rightend; i++)
 		x[i] = tmp[i];
 }
+
+void mSort(int k[], int tmp[], int left, int right)
+{
+	int center;
+	if(left < right)
+	{
+		center = (left + right) / 2;
+		mSort(k, tmp, left, center);
+		mSort(k, tmp, center + 1, right);
+		Merge(k, tmp, left, center, right);
+	}
+}
+
+void MergeSort(int k[], int n)
+{
+	int *tmp;
+	tmp = (int *)malloc(sizeof (int) *n);
+	if(tmp != NULL)
+	{
+		mSort(k, tmp, 0, n-1);
+		free(tmp);
+	}
+	else
+		printf("No Space Left !!");
+}
+
 //choose #5
 void QuickSort(int k[ ], int left, int right)
 {
@@ -133,7 +161,7 @@ printf("\n");
 
 int main(int argc, char const *argv[]) {
 	int number, choose, i;
-	int array[MAX], temp[MAX];
+	int array[MAX];
 	scanf("%d %d", &number, &choose);
 	for(i = 0; i < number; i++)
 	{
@@ -159,7 +187,7 @@ int main(int argc, char const *argv[]) {
 	}
 	else if(choose == 4)
 	{
-		Merge(array, temp, 0, 1, number - 1);
+		MergeSort(array, number);
 		PrintArray(array, 0, number);
 		printf("%d\n", count);
 	}
