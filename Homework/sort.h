@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 int count = 0;
 void swap(int* a, int* b)
 {
