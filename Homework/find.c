@@ -39,7 +39,7 @@ int main(int argc, char const *argv[]) {
 
 	while(GetWord(fp, word))
 	{
-
+		
 	}
 	return 0;
 }
