@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 void PrintArray(int array[], int start, int end)
 {
 	int i;
