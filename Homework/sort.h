@@ -1,3 +1,4 @@
+int count = 0;
 void swap(int* a, int* b)
 {
     int t = *a;
