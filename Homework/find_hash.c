@@ -10,9 +10,10 @@ int count;
 {
 
 }*/
-/*char getWord(FILE *fp, char *buf)
+/*char getWord(FILE *fp, char buf[][])
 {
 	int c = 0;
+	int i = 0;
 	while( (c = fgetc(fp) ) != EOF && !isalpha(c) )
 	{}
 	if (c == EOF)
@@ -21,8 +22,8 @@ int count;
 	}
 	while( isalpha( c ) )
 	{
-		*buf = tolower(c);
-		++buf;
+		buf[i] = tolower(c);
+		++i;
 		c = fgetc(fp);
 	}
 	*buf = 0;
@@ -31,6 +32,7 @@ int count;
 
 int main(int argc, char const *argv[]) {
 	int method;
+	int i = 0;
 	char wordlist[MAXSIZE][MAXWORD], key[MAXWORD];
 	FILE *fp;
 	if( ( fp = fopen("dictionary3000.txt", "r") ) == NULL)
@@ -39,14 +41,15 @@ int main(int argc, char const *argv[]) {
 		return -1;
 	}
 	scanf("%s %d", key, &method);
-	int i = 0;
-	while (fgets(wordlist[i], sizeof wordlist[i], fp) != NULL)
-		i++;
-
+	//int i = 0;
+	while (fgets(wordlist[i], sizeof wordlist[i], fp) != 0)
+	{
+		++i;
+	}
 	printf("%s\n", wordlist[3366]);
-	/*while ( getWord(fp, wordlist) )
-		puts(wordlist);*/
-
+	//while ( getWord(fp, wordlist) )
+		//puts(wordlist);
+		//printf("%s\n", wordlist[3366]);
 
 	//scanf("%s %d", key, &method);
 
