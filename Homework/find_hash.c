@@ -6,10 +6,18 @@
 #define MAXSIZE 3500
 int count;
 
-/*int LinearSearch(char key[], int n, char k)
+int LinearSearch(char key[MAXSIZE][MAXWORD], int n, char *k)
 {
+	int i;
+	for (i = 0; i < n; i++)
+	{
+		++count;
+		if(strcmp(key[i], k) == 0)
+			return 1;
+	}
+	return 0;
 
-}*/
+}
 /*char getWord(FILE *fp, char buf[][])
 {
 	int c = 0;
@@ -33,6 +41,7 @@ int count;
 int main(int argc, char const *argv[]) {
 	int method;
 	int i = 0;
+	int c;
 	char wordlist[MAXSIZE][MAXWORD], key[MAXWORD];
 	FILE *fp;
 	if( ( fp = fopen("dictionary3000.txt", "r") ) == NULL)
@@ -46,12 +55,13 @@ int main(int argc, char const *argv[]) {
 	{
 		++i;
 	}
-	printf("%s\n", wordlist[3366]);
+	c = LinearSearch(wordlist, i, key);
+	//printf("%s\n", wordlist[3366]);
 	//while ( getWord(fp, wordlist) )
 		//puts(wordlist);
 		//printf("%s\n", wordlist[3366]);
+	printf("%d %d\n", c, count);
 
-	//scanf("%s %d", key, &method);
 
 	return 0;
 }
