@@ -4,9 +4,13 @@
 #include <string.h>
 #define MAXWORD 20
 #define MAXSIZE 3500
+typedef struct Data{
+	char *word;
+}data;
+
 int count;
 
-int LinearSearch(char key[MAXSIZE][MAXWORD], int n, char *k)
+/*int LinearSearch(char key[MAXSIZE], int n, char *k)
 {
 	int i;
 	for (i = 0; i < n; i++)
@@ -17,7 +21,7 @@ int LinearSearch(char key[MAXSIZE][MAXWORD], int n, char *k)
 	}
 	return 0;
 
-}
+}*/
 /*char getWord(FILE *fp, char buf[][])
 {
 	int c = 0;
@@ -42,7 +46,7 @@ int main(int argc, char const *argv[]) {
 	int method;
 	int i = 0;
 	int c;
-	char wordlist[MAXSIZE][MAXWORD], key[MAXWORD];
+	char wordlist[MAXSIZE], key[MAXWORD];
 	FILE *fp;
 	if( ( fp = fopen("dictionary3000.txt", "r") ) == NULL)
 	{
@@ -51,16 +55,19 @@ int main(int argc, char const *argv[]) {
 	}
 	scanf("%s %d", key, &method);
 	//int i = 0;
-	while (fgets(wordlist[i], sizeof wordlist[i], fp) != 0)
+	while (!feof(fp))
 	{
+		fscanf(fp, "%s", wordlist);
+		puts(wordlist);
 		++i;
 	}
-	c = LinearSearch(wordlist, i, key);
+	//c = LinearSearch(wordlist, i, key);
 	//printf("%s\n", wordlist[3366]);
 	//while ( getWord(fp, wordlist) )
 		//puts(wordlist);
 		//printf("%s\n", wordlist[3366]);
-	printf("%d %d\n", c, count);
+	//puts(wordlist);
+	//printf("%d %d\n", c, count);
 
 
 	return 0;
