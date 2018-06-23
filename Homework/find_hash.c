@@ -57,16 +57,19 @@ int main(int argc, char const *argv[]) {
 	}
 	//scanf("%s %d", key, &method);
 
-	while (!feof(fp) )
+	while ( (fgets(dictionary, MAXWORD, fp) ) != NULL )
 	{
-		fscanf(fp, "%s", wordlist[i]);
+		strcpy(wordlist[i].word, dictionary);
+		//wordlist[i].word = dictionary;
+		//fscanf(fp, "%s", wordlist[i]);
 		//fgets(wordlist[i], sizeof wordlist, fp);
 		//strcpy(wordlist[i],	 dictionary);
 		i++;
 		//puts(wordlist);
 	}
 
-	printf("%s\n", wordlist[0]);
+	printf("%s", wordlist[100].word);
+	printf("%s", wordlist[3499].word);
 	//c = LinearSearch(wordlist, i, key);
 	//printf("%s\n", wordlist[3366]);
 	//while ( getWord(fp, wordlist) )
