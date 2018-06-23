@@ -4,18 +4,18 @@
 
 #define BUF_SIZE 100
 #define MAX_BOOK 500
-struct  Books{
+typedef struct  Books{
 	char name[100];
 	char author[20];
 	char publisher[30];
 	char date[10];
-};
+}books;
 struct Books SaveToStruct(char *s);
 void print(struct Books* arr, int size);
 
 int main(int argc, char const *argv[])
 {
-	struct Books book[MAX_BOOK];
+ 	books book[MAX_BOOK];
 	char buffer[BUF_SIZE], input[MAX_BOOK];
 	char control;
 	int flag, len;
@@ -44,7 +44,7 @@ int main(int argc, char const *argv[])
 		{
 			//while (input != '\n')
 			//{
-				gets(input);
+				//fgets(input);
 				strcpy(buffer, input);
 
 				book[flag] = SaveToStruct(buffer);
@@ -79,7 +79,7 @@ int main(int argc, char const *argv[])
 
 struct Books SaveToStruct(char *s)
 {
-		struct Books res;
+		books res;
 		int flag = 0;
 		char *token = strtok(s, " ");
 		while(token != NULL)

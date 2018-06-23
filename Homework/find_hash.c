@@ -43,11 +43,12 @@ int count;
 }*/
 
 int main(int argc, char const *argv[]) {
+	data wordlist[MAXSIZE];
 	int method;
 	int i = 0;
 	//data *wordlist = (data *)malloc(sizeof(data));
 	char key[MAXWORD], dictionary[MAXWORD];
-	char *wordlist[MAXSIZE];
+	//char *wordlist[MAXSIZE];
 	FILE *fp;
 	if( ( fp = fopen("dictionary3000.txt", "r") ) == NULL)
 	{
