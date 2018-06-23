@@ -10,9 +10,8 @@ typedef struct Data{
 }data;
 
 int count;
-int LinearSearch(char key[MAXSIZE], int n, char *k)
+/*int LinearSearch(char key[MAXSIZE], int n, char *k)
 {
-	data *res;
 	int i;
 	for (i = 0; i < n; i++)
 	{
@@ -22,7 +21,7 @@ int LinearSearch(char key[MAXSIZE], int n, char *k)
 	}
 	return 0;
 
-}
+}*/
 /*char getWord(FILE *fp, char buf[][])
 {
 	int c = 0;
@@ -68,9 +67,9 @@ int main(int argc, char const *argv[]) {
 		i++;
 		//puts(wordlist);
 	}
-	//LinearSearch()
+
 	printf("%s", wordlist[100].word);
-	printf("%s", wordlist[3499].word);
+	//printf("%s", wordlist[].word);
 	//c = LinearSearch(wordlist, i, key);
 	//printf("%s\n", wordlist[3366]);
 	//while ( getWord(fp, wordlist) )
