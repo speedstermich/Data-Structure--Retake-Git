@@ -11,6 +11,12 @@ typedef struct  Books{
 	char date[10];
 }books;
 struct Books SaveToStruct(char *s);
+
+books *InsertNew()
+{
+	
+}
+
 void print(struct Books* arr, int size);
 
 int main(int argc, char const *argv[])
@@ -98,7 +104,6 @@ struct Books SaveToStruct(char *s)
     return res;
 }
 
-//void Insert(struct Books *arr, )
 
 //void search(char *str)
 

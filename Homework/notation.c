@@ -4,19 +4,20 @@
 
 int main(int argc, char  *argv[]) {
 
-	char number[MAX];
-	int i = 0, len;
+	char number[MAX], last;
+	int i = 0, len, j, decimal;
 
-	scanf("%c",number[i] );
-
-	//len = strlen(number);
-	//}
-	//for(i = 0; i <)
-	//printf("%d" ,len);
-	for(i = 0; i < len; i++)
+	//strcpy(number, "0.000000000000002");
+	scanf("%s", number);
+	for(i = 1, j = i -1;  i < strlen(number); i++, ++j)
 	{
-			printf("%c",number[len] );
-
+			last = number[strlen(number) - 1];
+			decimal = j;
 	}
+	if (number[0] <= '0')
+	{
+		printf("%ce-%d\n", last, decimal - 1);
+	}
+
 	return 0;
 }

@@ -42,6 +42,7 @@ void PrintfLeaf(struct bst *root)
 	if(!root -> left && !root -> right)
 	{
 		printf("%d %d ", root -> data, pathlen);
+		printf("\n");
 		return;
 	}
 
