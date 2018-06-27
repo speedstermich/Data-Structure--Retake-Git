@@ -18,6 +18,6 @@ int main(int argc, char  *argv[]) {
 	{
 		printf("%ce-%d\n", last, decimal - 1);
 	}
-
+	if()
 	return 0;
 }
