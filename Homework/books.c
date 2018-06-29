@@ -12,9 +12,9 @@ typedef struct  Books{
 }books;
 struct Books SaveToStruct(char *s);
 
-books *InsertNew()
+void InsertBooks()
 {
-	
+
 }
 
 void print(struct Books* arr, int size);

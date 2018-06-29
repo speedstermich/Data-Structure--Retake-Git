@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -10,7 +11,8 @@ typedef struct Data{
 }data;
 
 int count;
-/*int LinearSearch(char key[MAXSIZE], int n, char *k)
+
+int LinearSearch()
 {
 	int i;
 	for (i = 0; i < n; i++)
@@ -21,7 +23,7 @@ int count;
 	}
 	return 0;
 
-}*/
+}
 /*char getWord(FILE *fp, char buf[][])
 {
 	int c = 0;
