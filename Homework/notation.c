@@ -3,6 +3,11 @@
 #include <string.h>
 #define MAX 100
 
+void CheckUp()
+{
+}
+
+
 int main(int argc, char  *argv[]) {
 
 	char number[MAX], last;

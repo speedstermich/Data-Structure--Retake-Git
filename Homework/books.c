@@ -12,7 +12,7 @@ typedef struct  Books{
 }books;
 struct Books SaveToStruct(char *s);
 
-void InsertBooks()
+void InsertBooks(books list[], char *s)
 {
 
 }

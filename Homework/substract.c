@@ -4,6 +4,16 @@
 
 #define MAX 82
 
+void Minus(char var1[], char var2[])
+{
+
+}
+
+void judge()
+{
+
+}
+
 int main(int argc, char const *argv[])
 {
 	char number[MAX], number2[MAX], transfer[MAX];
