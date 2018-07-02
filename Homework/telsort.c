@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX 10
+#define MAX 15
 #define MAXSIZE 50
 
 struct Contact{
-	char name[MAX];
+	char name[MAX]	;
 	char number[MAX];
 };
 
@@ -26,6 +26,7 @@ void ByName(struct Contact list[], int n)
 				list[j] = tmp;
 				//fflush(stdin);
 			}
+			//printf("%10s %10s\n", list[i].name, list[i].number);
 		}
 	}
 }
@@ -39,17 +40,18 @@ int main(int argc, char const *argv[]) {
 	{
 		for(i = 0; i < total; i++)
 		{
-			scanf("%10s %10s", list[i].name, list[i].number);
+			scanf("%s %s", list[i].name, list[i].number);
 			fflush(stdin);
 		}
-		fflush(stdin);
+		//fflush(stdin);
 		ByName(list, total);
-		fflush(stdin);
+		//fflush(stdin);
 
 		for(i = 0; i < total; i++)
 		{
-			fflush(stdin);
-			printf("%10s %10s\n", list[i].name, list[i].number);
+			//fflush(stdin);
+			//change to 12
+			printf("%12s %12s\n", list[i].name, list[i].number);
 		}
 	}
 	return 0;
