@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,14 +11,43 @@ typedef struct  Books{
 	char publisher[30];
 	char date[10];
 }books;
-struct Books SaveToStruct(char *s);
+
+
+struct Books SaveToStruct(char *s)
+{
+		books res;
+		int flag = 0;
+		char *token = strtok(s, " ");
+		while(token != NULL)
+		{
+			if (0 == flag)
+            	strcpy(res.name, token);
+      else if (1 == flag)
+            	strcpy(res.author, token);
+      else  if (2 == flag)
+            	strcpy(res.publisher, token);
+			else if (3 == flag)
+				strcpy(res.date, token);
+        flag++;
+        token = strtok( NULL, " " );
+    }
+    return res;
+}
+
+//void search(char *str)
+void print(struct Books *arr, int size)
+{
+	int i ;
+	for (i = 0; i < size; i++)
+	{
+		printf("%s %s %s %s\n",arr[i].name, arr[i].author, arr[i].publisher, arr[i].date );
+	}
+}
 
 void InsertBooks(books list[], char *s)
 {
 
 }
-
-void print(struct Books* arr, int size);
 
 int main(int argc, char const *argv[])
 {
@@ -42,17 +72,17 @@ int main(int argc, char const *argv[])
 		book[flag] = SaveToStruct(buffer);
 		flag++;
 	}
+
 	//print(book, 10);
 	while ((control = getchar()) != '0')
 	{
 		//control = getchar();
 		if (control == '1')
 		{
-			//while (input != '\n')
-			//{
-				//fgets(input);
-				strcpy(buffer, input);
+				fgets(buffer, BUF_SIZE, stdin);
 
+				//strcpy(buffer, input);
+				++flag;
 				book[flag] = SaveToStruct(buffer);
 
 			//}
@@ -77,41 +107,6 @@ int main(int argc, char const *argv[])
 			break;*/
 
 	}
-	//print(book, flag);
-	//printf("%d\n",len );
-	printf("%s\n",book[flag].name );
+	printf("%s\n",book[9].name );
 	return 0;
-}
-
-struct Books SaveToStruct(char *s)
-{
-		books res;
-		int flag = 0;
-		char *token = strtok(s, " ");
-		while(token != NULL)
-		{
-			if (0 == flag)
-            		strcpy(res.name, token);
-        		else if (1 == flag)
-            		strcpy(res.author, token);
-        		else  if (2 == flag)
-            		strcpy(res.publisher, token);
-			else if (3 == flag)
-				strcpy(res.date, token);
-        flag++;
-        token = strtok( NULL, " " );
-    		}
-    return res;
-}
-
-
-//void search(char *str)
-
-void print(struct Books *arr, int size)
-{
-	int i ;
-	for (i = 0; i < size; i++)
-	{
-		printf("%s %s %s %s\n",arr[i].name, arr[i].author, arr[i].publisher, arr[i].date );
-	}
 }

@@ -51,7 +51,7 @@ int main(int argc, char const *argv[]) {
 		{
 			//fflush(stdin);
 			//change to 12
-			printf("%12s %12s\n", list[i].name, list[i].number);
+			printf("%12s%12s\n", list[i].name, list[i].number);
 		}
 	}
 	return 0;
