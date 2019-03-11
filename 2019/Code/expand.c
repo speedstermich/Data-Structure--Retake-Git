@@ -9,7 +9,7 @@ int main(int argc, char const *argv[]) {
 	int i = 0;
 	//User input part
 	get = getchar();
-	while (get != '\n') {
+	while (get != EOF) {
 		character[i] = get;
 		i++;
 		get = getchar(); //get char
