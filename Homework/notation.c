@@ -3,19 +3,14 @@
 #include <string.h>
 #define MAX 100
 
-void CheckUp()
-{
-}
-
-
 int main(int argc, char  *argv[]) {
 
 	char number[MAX], last;
-	int i = 0, len, j, decimal;
+	int i = 0, j, decimal;
 
-	//strcpy(number, "0.000000000000002");
-	scanf("%s", number);
-	for(i = 1, j = i -1;  i < strlen(number); i++, ++j)
+	strcpy(number, "0.000000000000002");
+//scanf("%s", number);
+	for(i = 1, j = i - 1;  i < strlen(number); i++, ++j)
 	{
 			last = number[strlen(number) - 1];
 			decimal = j;
@@ -24,6 +19,5 @@ int main(int argc, char  *argv[]) {
 	{
 		printf("%ce-%d\n", last, decimal - 1);
 	}
-	//if ()
 	return 0;
 }
