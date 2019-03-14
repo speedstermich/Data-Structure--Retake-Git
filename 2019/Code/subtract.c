@@ -6,6 +6,6 @@
 int main(int argc, char const *argv[]) {
 	int i;
 	int number[MAX], number2[MAX];
-	gets();
+	
 	return 0;
 }
