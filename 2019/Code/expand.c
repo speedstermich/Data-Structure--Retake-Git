@@ -18,8 +18,10 @@ int main(int argc, char const *argv[]) {
 	for (i = 0; character[i]; i++){
 		if (character[i] == '-'){
 			if (((isdigit(character[i-1]) && isdigit(character[i+1])) || (islower(character[i-1]) && islower(character[i+1])) ||
-			(isupper(character[i-1]) && isupper(character[i+1]))) && (character[i-1] <= character[i+1])){
-				for(get = character[i-1]+1; get < character[i+1]; get++){
+			(isupper(character[i-1]) && isupper(character[i+1]))) && (character[i-1] <= character[i+1]))
+			{
+				for(get = character[i-1]+1; get < character[i+1]; get++)
+				{
 					printf("%c", get);
 				}
 			}
@@ -42,6 +44,5 @@ int main(int argc, char const *argv[]) {
 		}
 	}
 	printf("\n");
-
 	return 0;
 }
