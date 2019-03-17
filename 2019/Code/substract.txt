@@ -31,7 +31,9 @@ void minus(char a[], char b[], int k1, int k2)
     }
     for (i = 0; i<k2; i++, k2--)
     {
-        k = b[i]; b[i] = b[k2]; b[k2] = k;
+        k = b[i];
+				b[i] = b[k2];
+				b[k2] = k;
     }
     for (i = 0; i<strlen(a); i++)
     {
