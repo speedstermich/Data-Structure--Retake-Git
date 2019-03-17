@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -16,8 +17,8 @@ int main(int argc, char const *argv[]) {
 		//when op * or /
 		while (op2 == '*' || op2 == '/') {
 			scanf("%d %c", &num3, &op3 );
-			while (op3 == '*' || op3 == '/')
-			scanf ("%d ")
+			//while (op3 == '*' || op3 == '/')
+			//scanf ("%d ")
 			if (op2 == '*')
 			{
 				num2 *= num3;
@@ -26,8 +27,8 @@ int main(int argc, char const *argv[]) {
 			else if(op2== '/' )
 			{
 				num2 /= num3;
-				printf("%d\n",num3 );
-				printf("%d\n",num2 );
+				//printf("%d\n",num3 );
+				//printf("%d\n",num2 );
 			}
 			op2 = op3; // op3 operation same as op2
 		}
@@ -40,7 +41,7 @@ int main(int argc, char const *argv[]) {
             op1 = op2; //operation 1 and 2 is same
       }
 
-	//printf("%d",num1);
+	printf("%d",num1);
 
 	return 0;
 }
