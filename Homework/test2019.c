@@ -1,12 +1,13 @@
-#include <stdio.h>
-void func(char *q)
+#include<stdio.h>
+void sub(int x,int y,int *z)
 {
-           char a[]="hello";
-           q=a;
+       *z=y-x;
 }
 main()
 {
-           char *p = "hello";
-           func(p);
-           printf("%s\n",p);
+          int a,b,c;
+          sub(10,5,&a);
+          sub(7,a,&b);
+          sub(a,b,&c);
+          printf("%d,%d,%d\n",a,b,c);
 }
