@@ -1,13 +1,9 @@
-#include<stdio.h>
-void sub(int x,int y,int *z)
-{
-       *z=y-x;
-}
-main()
-{
-          int a,b,c;
-          sub(10,5,&a);
-          sub(7,a,&b);
-          sub(a,b,&c);
-          printf("%d,%d,%d\n",a,b,c);
+#include <stdio.h>
+
+int main() {
+  int *b[] = {1, 3, 5, 7, 9};
+  int a[5], *num[5] = {&a[0], &a[1], &a[2], &a[3], &a[4]};
+  // int a[] = {1, 3, 5, 7, 9}; int *num[5] = {a[0], a[1], a[2], a[3], a[4]};
+  int a[3][4], (*num)[4];
+  num[1] = &a[1][3];
 }
