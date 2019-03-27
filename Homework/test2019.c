@@ -1,11 +1,14 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-
 int main() {
-  int i, j;
-  for (i = 5; i >= 1; i--) {
-    for (j = 1; j <= i; j++) {
-      printf("*");
-    }
-    printf("\n");
+  int a, b, c;
+  scanf("%d %d %d", &a, &b, &c);
+  if (a % 2 == 0) {
+    printf("%d is odd number\n", a);
+  } else if (b % 2 == 0) {
+    printf("%d is odd number\n", b);
+  } else if (c % 2 == 0) {
+    printf("%d is odd number\n", c);
   }
+  return 0;
 }

@@ -23,6 +23,7 @@ void sortbyName(struct books array[], int n) {
     }
   }
 }
+
 int main(int argc, char const *argv[]) {
   int op, i, j, n;    // variable declaration
   int total_line = 0; // total line number
