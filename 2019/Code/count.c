@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -95,63 +96,3 @@ int insertWord(struct Node *p, char *w) {
   }
   return 0;
 }
-/*int getWod(FILE *fp, char w[])
-{
-int c, i = 0;
-//char word[MAXWORD] = w;
-while ((c = fgetc(fp)) != EOF && !isalpha(c))
-        if(c == EOF)
-                return c;
-        else
-                continue;
-w [i++] = c;
-while ((c = fgetc(fp)) != EOF && !isalpha(c))
-{
-        if (type(c) != LETTER || type(c) != DIGIT)
-                break;
-        w[i++] = tolower(c);
-}
-w[i] = 0;
-return 1;
-}*/
-
-/*int getWord (FILE *fp, char w[])
-{
-        int c, i = 0;
-        //char word[MAXWORD] = w;
-        while (type(c = fgetc(fp)) != LETTER)
-                if(c == EOF)
-                        return c;
-                else
-                        continue;
-        w [i++] = c;
-        while ((c = fgetc(fp)) != EOF && !isalpha(c))
-        {
-                if (type(c) != LETTER || type(c) != DIGIT)
-                        break;
-                w[i++] = tolower(c);
-        }
-        w[i] = 0;
-        return 1;
-
-        //while (fscanf(fp, "%s", w) != EOF);
-}*/
-
-/*char type(int c)
-{
-        if (c >= 'a' && c <= 'z')
-        {
-                return(LETTER);
-        }
-        else if (c >= 'A' && c <= 'Z')
-        {
-                // tolower(c);
-                return (LETTER);
-                //return (LETTER);
-        }
-        else if (c >= '0' && c <= '9')
-        {
-                return (DIGIT);
-        }
-        else return (c);
-}*/
