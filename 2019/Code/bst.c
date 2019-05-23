@@ -1,17 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
+
 #define MAX_NUMBER 100
 
-struct bst {
+struct Tree {
   int data;
-  struct bst *left;
-  struct bst *right;
+  struct Tree *left;
+  struct Tree *right;
 };
-struct bst *newNode(int data);
+
+struct Tree *NewNode(int data);
 int pathlen = 1;
 
-struct bst *newNode(int data) {
-  struct bst *node = (struct bst *)malloc(sizeof(struct bst));
+struct Tree *newNode(int data) {
+  struct Tree *node = (struct Tree *)malloc(sizeof(struct Tree));
   node->data = data;
   node->left = NULL;
   node->right = NULL;
@@ -19,21 +22,20 @@ struct bst *newNode(int data) {
   return node;
 }
 
-struct bst *Insert(struct bst *node, int data) {
-  // if tree is empty return a new node
+struct Tree *Insert(struct Tree *node, int data) {
   if (node == NULL)
     return newNode(data);
-  // recursion insert to the tree
+
   if (data < node->data)
     node->left = Insert(node->left, data);
-  else if (data >= node->data)
+  else
     node->right = Insert(node->right, data);
 
-  // return the node pointer
   return node;
 }
 
-void PrintfLeaf(struct bst *root) {
+// function for print Tree Leaf
+void PrintTree(struct Tree *root) {
   if (!root)
     return;
   if (!root->left && !root->right) {
@@ -44,32 +46,31 @@ void PrintfLeaf(struct bst *root) {
 
   if (root->left) {
     ++pathlen;
-    PrintfLeaf(root->left);
+    PrintTree(root->left);
   }
   pathlen -= 1;
   if (root->right) {
     ++pathlen;
-    PrintfLeaf(root->right);
+    PrintTree(root->right);
   }
   pathlen -= 1;
 }
 
-int main() {
+int main(int argc, char const *argv[]) {
   int number, array[MAX_NUMBER], temp;
   int i;
-  struct bst *root = NULL;
+  struct Tree *root = NULL;
 
   scanf("%d", &number);
   for (i = 0; i < number; i++) {
-    scanf("%d", &array[i]);
-    temp = array[i];
+    scanf("%d", &temp);
+    // temp = array[i];
     if (root == NULL)
       root = Insert(root, temp);
     else
       Insert(root, temp);
   }
 
-  PrintfLeaf(root);
-
+  PrintTree(root);
   return 0;
 }
